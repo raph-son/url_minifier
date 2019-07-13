@@ -1,0 +1,6 @@
+migrations/
+
+__init__.py
+db.sqlite3
+*.swp
+*.pyc

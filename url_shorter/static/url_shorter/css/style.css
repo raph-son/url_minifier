@@ -1,0 +1,18 @@
+* {
+    box-sizing: content-box;
+    margin: 0px;
+    padding: 0px;
+ }
+
+.outer_container {
+    min-height: 100vh;
+}
+
+.url_output {
+    /* hide text box on page rendering
+     * so it can be revealed dynamically
+     */
+    display: none;
+    margin: 13px 8px;
+}
+
