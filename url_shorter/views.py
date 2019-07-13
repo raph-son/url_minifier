@@ -20,12 +20,11 @@ def remainder_list(value):
     x = value
     quotient = 0
     remainder = []
-    while (x != 0):
+    while (x > 0):
         quotient = int(x/62)
         temp =  int(x % 62)
-        if ( temp > 0 ):
-            remainder.append(temp)
-        x = quotient
+        remainder.append(temp)
+        x = int(quotient)
 
     return remainder
 
