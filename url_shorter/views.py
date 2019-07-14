@@ -20,6 +20,12 @@ def remainder_list(value):
     x = value
     quotient = 0
     remainder = []
+    # Not applicable here that value
+    # will be 0 since value comes from
+    # db id field - which has no 0 id value
+    if (x == 0):
+        remainder.append(0)
+
     while (x > 0):
         quotient = int(x/62)
         temp =  int(x % 62)
@@ -158,7 +164,7 @@ def submit_url(request):
         # Url already existed, just go ahead and return it hash
         serializer = UrlSerializer(url)
         return Response({
-            "success": f"{domain}/{serializer.data.hash}"
+            "success": f"{domain}/{serializer.data['hash']}"
         })
     else:
         return Response({
@@ -169,11 +175,17 @@ def redirect_out(request, hash):
     """
     View to redirect minified link to destination
     """
+    print(hash)
     try:
         url = Url.objects.get(hash=hash)
     except Url.DoesNotExist:
-        # Invalid hash link, just redirect
-        # to home page
-        return redirect("/")
+        # :hash can also be an actual route
+        # in the case of /admin
+        # Since we want the out bound link to be simple,
+        # we can assume that if it's not in the db, it
+        # is a route on the server.
+        # And if it's not a route on the server
+        # the 404 error function can catch it
+        return redirect(f"{hash}/")
     serializer = UrlSerializer(url)
     return redirect(serializer.data["url"])
