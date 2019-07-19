@@ -14,4 +14,4 @@ to setup database file(django's default database setting - sqlite) and create da
 
 `python manage.py runserver` to get app started and running
 
-![UI](https://drive.google.com/file/d/1-CrZdoGPYwhmSJCxipJ7Lhodrae5vt1Y/view)
+![UI](https://drive.google.com/file/d/1-CrZdoGPYwhmSJCxipJ7Lhodrae5vt1Y/view?usp=drivesdk)
